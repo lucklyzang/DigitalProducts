@@ -18,7 +18,7 @@
 				<view class="rare-object">
 					稀有藏品,免费抽
 				</view>
-				<view class="object-list">
+				<view class="object-list" @click="objectDetailEvent">
 					<view class="sell-info-area">
 						<view class="left">
 							<uni-icons type="home" size="14" color="#90d56c"></uni-icons>
@@ -209,6 +209,10 @@
 				</view>
 			</view>
 		</view>
+		<view class="name-auth">
+			<text>实名认证后才可以购买数字藏品</text>
+			<text @click="goAuthNameEvent">去认证</text>
+		</view>
 	</view>
   </view>
 </template>
@@ -245,6 +249,19 @@ export default {
 		tabSwitchEvent (index) {
 			this.currentTabIndex = index;
 			console.log(index,this.currentTabIndex)
+		},
+		
+		// 藏品点点击详情事件
+		objectDetailEvent () {
+			uni.redirectTo({
+				url: '/digitalCollectPage/pages/digitalCollectionDetail/index/index'
+			})
+		},
+		// 实名认证事件
+		goAuthNameEvent () {
+			uni.redirectTo({
+				url: '/digitalCollectPage/pages/authName/index/index'
+			})
 		}
 	}
 }
@@ -267,6 +284,7 @@ export default {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
+	position: relative;
 	.tab-switch {
 		position: sticky;
 		top: 50px;
@@ -516,7 +534,42 @@ export default {
 				}
 			}
 		  }
-	  }
+	  };
+	.name-auth {
+		width: 92%;
+		left: 4%;
+		position: fixed;
+		bottom: 10px;
+		height: 50px;
+		z-index: 300;
+		border-radius: 6px;
+		background: #ffc252;
+		text-align: center;
+		padding: 0 10px;
+		line-height: 50px;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		box-sizing: border-box;
+		>text {
+			display: inline-block;
+			&:first-child {
+				font-weight: bold
+			};
+			&:last-child {
+				text-align: center;
+				line-height: 36px;
+				height: 36px;
+				width: 80px;
+				box-sizing: border-box;
+				border-radius: 20px;
+				font-size: 14px;
+				background: rgb(40,40,40);
+				color: #f3ad2b;
+			}
+		}
+	}  
   }
 }
 </style>

@@ -72,6 +72,26 @@
 						"backgroundColorBottom": "#222222",
 						"backgroundColor":"#252525"
 					}
+				},
+				{
+					"path": "pages/digitalCollectionDetail/index/index",
+					"style": {
+						"navigationStyle":"custom",
+						"navigationBarBackgroundColor": "#252525",
+						"navigationBarTextStyle": "white",
+						"backgroundColorBottom": "#222222",
+						"backgroundColor":"#252525"
+					}
+				},
+				{
+					"path": "pages/authName/index/index",
+					"style": {
+						"navigationStyle":"custom",
+						"navigationBarBackgroundColor": "#252525",
+						"navigationBarTextStyle": "white",
+						"backgroundColorBottom": "#222222",
+						"backgroundColor":"#252525"
+					}
 				}
 			]
 		}
