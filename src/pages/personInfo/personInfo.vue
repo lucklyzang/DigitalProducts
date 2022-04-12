@@ -22,7 +22,9 @@
 				</view>
 			</view>
 			<view class="function-zone">
-				<view class="function-zone-icon-list" v-for="(item,index) in zoneIconList" :key="index">
+				<view class="function-zone-icon-list" v-for="(item,index) in zoneIconList" :key="index"
+						@click="functionSetEvent(item)"
+				>
 					<uni-icons :type="item.icon" size="32" color="#fff"></uni-icons>
 					<text>{{item.text}}</text>
 				</view>
@@ -107,15 +109,25 @@
 		methods: {
 			...mapMutations([
 			]),
+			// 跳转个人编辑页
 			toEditPersonPage () {
 				uni.redirectTo({
 				    url: '/digitalCollectPage/pages/editPersonData/index/index'
 				});
 			},
+			// 跳转总体设置页
 			toSetPage () {
 				uni.redirectTo({
 				    url: '/digitalCollectPage/pages/set/index/index'
 				});
+			},
+			// 跳转具体功能页
+			functionSetEvent (item) {
+				if (item.text === '我的订单') {
+					uni.redirectTo({
+					    url: '/digitalCollectPage/pages/myOrderForm/index/index'
+					});
+				}
 			}
 		}
 	}

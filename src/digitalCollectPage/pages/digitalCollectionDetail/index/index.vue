@@ -34,7 +34,7 @@
 					<text>乔玲</text>
 				</view>
 			</view>
-			<view class="production-story">
+			<view class="production-story" @click="productionStoryEvent">
 				<text>作品故事</text>
 			</view>
 		</view>
@@ -78,10 +78,17 @@
 		methods: {
 			...mapMutations([
 			]),
+			// 返回上一页
 			backTo () {
 				uni.switchTab({
 				    url: '/pages/index/index'
 				});
+			},
+			// 进入作品故事页
+			productionStoryEvent () {
+				uni.redirectTo({
+					url: '/digitalCollectPage/pages/productionStory/index/index'
+				})
 			}
 		}
 	}
@@ -91,7 +98,6 @@
 	@import "~@/common/stylus/variable.scss";
 	::v-deep.uni-navbar {
 		position: sticky;
-		top: 50px;
 		background: #252525;
 		width: 100%;
 		z-index: 200;

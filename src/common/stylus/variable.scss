@@ -23,8 +23,8 @@ $color-underline: #e5e5e5; // 下划线颜色
    bottom:65px;
    overflow:auto;
 };
-// 一像素下边框
-@mixin bottom-border-1px($color) {
+//下边框
+@mixin bottom-border-1px($color,$height:1px) {
   position: relative;
   border: none;
   &:after {
@@ -33,8 +33,8 @@ $color-underline: #e5e5e5; // 下划线颜色
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 1px;
+    height: $height;
     background-color: $color;
     transform: scaleY(0.5)
   }
-}
+};

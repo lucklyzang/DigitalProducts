@@ -28,7 +28,7 @@
 					其它登录方式
 				</text>
 			</view>
-			<view>
+			<view @click="weixinAuthEvent">
 				<image src="/static/img/weixin.png"/>
 			</view>
 		</view>
@@ -68,9 +68,17 @@
 			inputEvent (event) {
 				this.phoneNumber = event.detail.value
 			},
-			// 登录验证
+			// 手机号登录验证
 			loginToIndex () {
-				uni.switchTab({url:'/pages/index/index'})
+				uni.redirectTo({
+					url: '/digitalCollectPage/pages/verificationCode/index/index'
+				})
+			},
+			// 微信登录验证
+			weixinAuthEvent () {
+				uni.switchTab({
+				    url: '/pages/index/index'
+				});
 			}
 		}
 	}
